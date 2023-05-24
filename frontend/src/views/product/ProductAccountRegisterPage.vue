@@ -10,12 +10,30 @@
     </div>
 </template>
 <script>
+
+import ProductAccountRegisterForm from '@/components/product/ProductAccountRegisterForm.vue';
+import { mapActions } from 'vuex';
+
+const productModule = 'productModule'
+
 export default {
+    components: {
+        ProductAccountRegisterForm,
+    },
+    name: "ProductAccountRegisterPage",
+    data() {
+        return {
+            isPressedButton: false,
+        }
+    },
+
     methods: {
         readyToCreateAccount() {
             this.isPressedButton = true
             alert('제품 등록 준비')
         },
+
+
     }
 }
 </script>
