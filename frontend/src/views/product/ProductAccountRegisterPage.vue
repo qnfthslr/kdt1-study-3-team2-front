@@ -1,11 +1,8 @@
 <template>
     <div>
-        <v-btn color="red" @click="readyToCreateAccount">회원 가입 준비 버튼</v-btn>
-        <div v-if="isPressedButton">
-            <product-register-form align="center" @submit="onSubmit" />
-        </div>
-
-
+        <br>
+        <product-account-register-form align="center" @submit="onSubmit" />
+        <br>
 
     </div>
 </template>
@@ -14,7 +11,7 @@
 import ProductAccountRegisterForm from '@/components/product/ProductAccountRegisterForm.vue';
 import { mapActions } from 'vuex';
 
-const productModule = 'productModule'
+const accountModule = 'accountModule'
 
 export default {
     components: {
@@ -23,15 +20,19 @@ export default {
     name: "ProductAccountRegisterPage",
     data() {
         return {
-            isPressedButton: false,
         }
     },
 
     methods: {
-        readyToCreateAccount() {
-            this.isPressedButton = true
-            alert('제품 등록 준비')
-        },
+        ...mapActions(
+            accountModule, ['requestCreateAccountToSpring']
+        ),
+        async onSubmit(payload) {
+            const account = await this.requestCreateAccountToSpring(payload)
+            console.log('account: ' + JSON.stringify(account))
+
+        }
+
 
 
     }
