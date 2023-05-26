@@ -10,7 +10,7 @@ export default {
         alert("계정 등록 성공!");
         return res;
       })
-      .catch(() => {
+      .catch((res) => {
         alert("문제 발생!");
       });
   },
