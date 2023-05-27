@@ -1,8 +1,10 @@
 <template lang="">
     <div>
-        <v-btn round color="cyan" dark @click="readyToCreateAccount">회원 가입 준비 버튼</v-btn>
+        
+         <v-btn outlined color="cyan" @click="readyToCreateAccount">회원 가입 준비 버튼</v-btn>
             <div v-if="isPressedButton">
                 <br>
+                
             <form @submit.prevent="onSubmit">
                 <table>
                     <tr>
@@ -64,6 +66,4 @@ export default {
 
 }
 </script>
-<style lang="">
-    
-</style>
+<style scoped></style>
