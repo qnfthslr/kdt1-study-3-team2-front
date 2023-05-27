@@ -1,11 +1,10 @@
 import axiosInst from "@/utility/axiosInst";
 
 export default {
-  requestCreateAccountToSpring({}, payload) {
+  requestCreateAccountToSpring({ }, payload) {
     const { accountEmail, accountPassword } = payload;
 
-    return axiosInst
-      .post("/account/regist", { accountEmail, accountPassword })
+    return axiosInst.post("/account/regist", { accountEmail, accountPassword })
       .then((res) => {
         alert("계정 등록 성공!");
         return res;
