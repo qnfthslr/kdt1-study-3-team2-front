@@ -9,25 +9,32 @@
                 <table>
                     <tr>
                         <td>
-                            이메일 :
+                            이메일
                         </td>
                         <td>
-                            <input type="text" v-model="email"/>
+                            <v-text-field v-model="email" label="이메일 입력"/>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            비밀번호 : 
+                            비밀번호
                         </td>
                         <td>
-                            <input type="text" v-model="password"/>
+                            <v-text-field v-model="password" label="비밀번호 입력" type="password"/>
                         </td>
+                    </tr>
+                    <tr>
+                        <td>비밀번호 확인</td>
+                        <td>
+                        <v-text-field label="비밀번호 확인" type="password" v-model="passwordConfirm" :rules="[passwordCheck]"/>
+                        </td>
+
                     </tr>
                 </table>
 
                 <div>
                     <button type="submit"> 회원가입 </button>
-                    <br>
+                    <br><br>
                     <router-link :to="{name : 'Home'}">
                         돌아가기
                     </router-link>
@@ -44,9 +51,10 @@ export default {
     name: "ProductAccountRegisterForm",
     data() {
         return {
-            email: '이메일을 입력하세요',
-            password: '비밀번호를 입력하세요',
+            email: '',
+            password: '123456',
             isPressedButton: false,
+            passwordConfirm: '',
         }
     },
     methods: {
@@ -59,7 +67,16 @@ export default {
             this.isPressedButton = true
             alert('계정 등록 준비')
         },
+
     },
+    computed: {
+        passwordCheck() {
+            return () => {
+                return this.password === this.passwordConfirm || '비밀번호가 일치하지 않습니다.'
+            }
+        }
+
+    }
 
 
 
