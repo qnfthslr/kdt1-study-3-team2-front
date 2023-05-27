@@ -1,11 +1,11 @@
 import axiosInst from "@/utility/axiosInst";
 
 export default {
-  requestSpringToCheckEmailDuplication({ }, payload) {
+  requestSpringToCheckEmail({ }, payload) {
     const { email } = payload;
     console.log("email: " + email);
 
-    return axiosInstance.springAxiosInst.get(`/account/check-email/${email}`)
+    return axiosInst.get(`/account/check-email/${email}`)
       .then((res) => {
         if (res.data) {
           alert("사용 가능한 이메일 입니다.")
@@ -18,9 +18,6 @@ export default {
         alert("문제 발생 ! ");
       });
   },
-
-
-
 
   requestCreateAccountToSpring({ }, payload) {
     const { email, password } = payload;
