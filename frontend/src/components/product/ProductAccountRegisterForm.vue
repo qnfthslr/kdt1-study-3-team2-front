@@ -11,7 +11,7 @@
                             이메일
                         </td>
                         <td>
-                            <v-text-field :rules="email_rule" v-model="email" label="이메일 입력"/>
+                            <v-text-field :rules="email_rule" v-model="accountEmail" label="이메일 입력"/>
                         </td>
                         <td>
                             <v-btn text large color="grey" @click="checkEmail" :disabled="false">
@@ -24,7 +24,7 @@
                             비밀번호
                         </td>
                         <td>
-                            <v-text-field v-model="password" label="비밀번호 입력" type="password"/>
+                            <v-text-field v-model="accountPassword" label="비밀번호 입력" type="password"/>
                         </td>
                     </tr>
                     <tr>
@@ -60,8 +60,8 @@ export default {
     name: "ProductAccountRegisterForm",
     data() {
         return {
-            email: '',
-            password: '123456',
+            accountEmail: '',
+            accountPassword: '123456',
             isPressedButton: false,
             passwordConfirm: '',
             emailPass: false,
@@ -80,8 +80,8 @@ export default {
 
         onSubmit() {
             if (this.$refs.form.validate()) {
-                const { email, password } = this
-                this.$emit('submit', { email, password })
+                const { accountEmail, accountPassword } = this
+                this.$emit('submit', { accountEmail, accountPassword })
             } else {
                 alert('올바른 정보를 입력하세요!')
             }
@@ -97,19 +97,19 @@ export default {
         },
 
         async checkEmail() {
-            const emailValid = this.email.match(
+            const emailValid = this.accountEmail.match(
                 /^(([^<>()[\]\\.,;:\s@]+(\.[^<>()[\]\\.,;:\s@]+)*)|(.+))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             )
             this.emailPass = false
 
             if (emailValid) {
-                const { email } = this
-                console.log('before actions - email: ' + email)
-                this.emailPass = await this.requestSpringToCheckEmail({ email })
+                const { accountEmail } = this
+                console.log('before actions - email: ' + accountEmail)
+                this.emailPass = await this.requestSpringToCheckEmail({ accountEmail })
             }
         },
         isFormValid() {
-            return this.emailPass && this.email_rule[1](this.email) === true
+            return this.emailPass && this.email_rule[1](this.accountEmail) === true
         }
 
 
