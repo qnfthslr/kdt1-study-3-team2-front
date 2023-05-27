@@ -4,7 +4,7 @@
             <div v-if="isPressedButton">
                 <br>
                 
-            <form @submit.prevent="onSubmit" ref="form">
+            <v-form @submit.prevent="onSubmit" ref="form">
                 <table>
                     <tr>
                         <td>
@@ -46,7 +46,7 @@
                 </div>
 
 
-            </form>
+            </v-form>
         </div>
 
     </div>
@@ -66,7 +66,7 @@ export default {
             passwordConfirm: '',
             emailPass: false,
             email_rule: [
-                v => !!v || '이메일을 입력해주세요!',
+                v => !!v || '이메일을 입력해주세요.',
                 v => {
                     const replaceV = v.replace(/(\s*)/g, '')
                     const pattern = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/
