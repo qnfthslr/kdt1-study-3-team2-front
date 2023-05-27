@@ -14,6 +14,11 @@
                         <td>
                             <v-text-field v-model="email" label="이메일 입력"/>
                         </td>
+                        <td>
+                            <v-btn flat large color="grey" @click="checkEmail" :disabled="false">
+                                중복 확인
+                            </v-btn>
+                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -67,6 +72,20 @@ export default {
             this.isPressedButton = true
             alert('계정 등록 준비')
         },
+
+        async checkEmail() {
+            const emailValid = this.email.match(
+                /^(([^<>()[\]\\.,;:\s@]+(\.[^<>()[\]\\.,;:\s@]+)*)|(.+))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            )
+            this.emailPass = false
+
+            if (emailValid) {
+                const { email } = this
+                console.log('before actions - email: ' + email)
+                this.emailPass = await this.requestSpringToCheckEmail({ email })
+            }
+        },
+
 
     },
     computed: {
