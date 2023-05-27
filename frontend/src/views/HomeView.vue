@@ -1,23 +1,15 @@
 <template>
-  <v-container>
-    <div>
-      <nav>
-        <router-link to="/product-account-register-page">회원 가입</router-link>
-
-      </nav>
-
-    </div>
-  </v-container>
+  <hello-world />
 </template>
 
 <script>
-import HelloWorld from '../components/HelloWorld'
+  import HelloWorld from '../components/HelloWorld'
 
-export default {
-  name: 'Home',
+  export default {
+    name: 'Home',
 
-  components: {
-    HelloWorld,
-  },
-}
+    components: {
+      HelloWorld,
+    },
+  }
 </script>

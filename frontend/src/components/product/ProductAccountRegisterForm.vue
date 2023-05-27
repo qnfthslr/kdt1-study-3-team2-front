@@ -1,8 +1,10 @@
 <template lang="">
     <div>
-        <v-btn color="red" @click="readyToCreateAccount">회원 가입 준비 버튼</v-btn>
+        
+         <v-btn outlined color="cyan" @click="readyToCreateAccount">회원 가입 준비 버튼</v-btn>
             <div v-if="isPressedButton">
                 <br>
+                
             <form @submit.prevent="onSubmit">
                 <table>
                     <tr>
@@ -10,7 +12,7 @@
                             이메일 :
                         </td>
                         <td>
-                            <input type="text" v-model="accountEmail"/>
+                            <input type="text" v-model="email"/>
                         </td>
                     </tr>
                     <tr>
@@ -18,7 +20,7 @@
                             비밀번호 : 
                         </td>
                         <td>
-                            <input type="text" v-model="accountPassword"/>
+                            <input type="text" v-model="password"/>
                         </td>
                     </tr>
                 </table>
@@ -42,21 +44,20 @@ export default {
     name: "ProductAccountRegisterForm",
     data() {
         return {
-            accountEmail: '이메일을 입력하세요',
-            accountPassword: '비밀번호를 입력하세요',
+            email: '이메일을 입력하세요',
+            password: '비밀번호를 입력하세요',
             isPressedButton: false,
-
         }
     },
     methods: {
         onSubmit() {
-            const { accountEmail, accountPassword } = this
-            this.$emit('submit', { accountEmail, accountPassword })
+            const { email, password } = this
+            this.$emit('submit', { email, password })
 
         },
         readyToCreateAccount() {
             this.isPressedButton = true
-            alert('제품 등록 준비')
+            alert('계정 등록 준비')
         },
     },
 
@@ -65,6 +66,4 @@ export default {
 
 }
 </script>
-<style lang="">
-    
-</style>
+<style scoped></style>
