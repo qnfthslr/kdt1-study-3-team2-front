@@ -117,7 +117,7 @@ export default {
     computed: {
         passwordCheck() {
             return () => {
-                return this.password === this.passwordConfirm || '비밀번호가 일치하지 않습니다.'
+                return this.accountPassword === this.passwordConfirm || '비밀번호가 일치하지 않습니다.'
             }
         }
 
