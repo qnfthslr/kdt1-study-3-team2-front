@@ -14,7 +14,7 @@
 <script>
 
 import { mapActions, mapState } from 'vuex';
-import AccountListForm from '@/components/product/AccountListForm.vue';
+import AccountListForm from '@/components/account/AccountListForm.vue';
 
 const accountModule = 'accountModule'
 
