@@ -6,7 +6,7 @@
         <account-list-form :accounts="accounts"/>
 
         <br>
-        {{ output }}
+
 
 
     </div>
@@ -19,6 +19,24 @@ import AccountListForm from '@/components/product/AccountListForm.vue';
 const accountModule = 'accountModule'
 
 export default {
+    components: { AccountListForm },
+    data() {
+        return {
+
+        }
+    },
+    computed: {
+        ...mapState(accountModule, ['products']),
+    },
+    mounted() {
+        this.requestAccountListToSpring()
+    },
+    methods: {
+        ...mapActions(
+            accountModule, ['requestAccountListToSpring']
+        )
+    },
+
 
 
 
