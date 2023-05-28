@@ -3,6 +3,7 @@
     <div>
       <nav>
         <router-link to="/product-account-register-page">회원 가입</router-link> |
+        <router-link to="/product-account-list-page">회원 목록</router-link> |
       </nav>
     </div>
   </v-container>
