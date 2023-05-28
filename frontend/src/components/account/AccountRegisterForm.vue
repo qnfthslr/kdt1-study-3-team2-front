@@ -11,7 +11,7 @@
                             이메일
                         </td>
                         <td>
-                            <v-text-field :rules="email_rule" v-model="accountEmail" label="이메일 입력"/>
+                            <v-text-field :rules="email_rule" v-model="email" label="이메일 입력"/>
                         </td>
                         <td>
                             <v-btn text large color="grey" @click="checkEmail" :disabled="false">
@@ -24,7 +24,7 @@
                             비밀번호
                         </td>
                         <td>
-                            <v-text-field v-model="accountPassword" label="비밀번호 입력" type="password"/>
+                            <v-text-field v-model="password" label="비밀번호 입력" type="password"/>
                         </td>
                     </tr>
                     <tr>
@@ -60,8 +60,8 @@ export default {
     name: "AccountRegisterForm",
     data() {
         return {
-            accountEmail: '',
-            accountPassword: '123456',
+            email: '',
+            password: '123456',
             isPressedButton: false,
             passwordConfirm: '',
             emailPass: false,
@@ -80,8 +80,8 @@ export default {
 
         onSubmit() {
             if (this.$refs.form.validate()) {
-                const { accountEmail, accountPassword } = this
-                this.$emit('submit', { accountEmail, accountPassword })
+                const { email, password } = this
+                this.$emit('submit', { email, password })
             } else {
                 alert('올바른 정보를 입력하세요!')
             }
@@ -97,19 +97,19 @@ export default {
         },
 
         async checkEmail() {
-            const emailValid = this.accountEmail.match(
+            const emailValid = this.email.match(
                 /^(([^<>()[\]\\.,;:\s@]+(\.[^<>()[\]\\.,;:\s@]+)*)|(.+))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             )
             this.emailPass = false
 
             if (emailValid) {
-                const { accountEmail } = this
-                console.log('before actions - email: ' + accountEmail)
-                this.emailPass = await this.requestSpringToCheckEmail({ accountEmail })
+                const { email } = this
+                console.log('before actions - email: ' + email)
+                this.emailPass = await this.requestSpringToCheckEmail({ email })
             }
         },
         isFormValid() {
-            return this.emailPass && this.email_rule[1](this.accountEmail) === true
+            return this.emailPass && this.email_rule[1](this.email) === true
         }
 
 
@@ -117,7 +117,7 @@ export default {
     computed: {
         passwordCheck() {
             return () => {
-                return this.accountPassword === this.passwordConfirm || '비밀번호가 일치하지 않습니다.'
+                return this.password === this.passwordConfirm || '비밀번호가 일치하지 않습니다.'
             }
         }
 

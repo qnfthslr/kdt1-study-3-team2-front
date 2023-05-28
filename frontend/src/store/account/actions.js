@@ -20,9 +20,9 @@ export default {
   },
 
   requestCreateAccountToSpring({ }, payload) {
-    const { accountEmail: email, accountPassword: password } = payload;
+    const { email, password } = payload;
 
-    return axiosInst.post("/account/regist", { accountEmail: email, accountPassword: password })
+    return axiosInst.post("/account/regist", { email, password })
       .then((res) => {
         alert("계정 등록 성공!");
         return res;
