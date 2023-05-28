@@ -1,5 +1,11 @@
 <template>
-  <hello-world />
+  <v-container>
+    <div>
+      <nav>
+        <router-link to="/product-register-page">상품 등록</router-link>
+      </nav>
+    </div>
+  </v-container>
 </template>
 
 <script>
