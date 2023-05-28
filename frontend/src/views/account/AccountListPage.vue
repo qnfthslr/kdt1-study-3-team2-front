@@ -1,7 +1,7 @@
 <template lang="">
     <div>
         
-        <h2>상품 목록</h2>
+        <br>
 
         <account-list-form :accounts="accounts"/>
 
@@ -20,11 +20,7 @@ const accountModule = 'accountModule'
 
 export default {
     components: { AccountListForm },
-    data() {
-        return {
 
-        }
-    },
     computed: {
         ...mapState(accountModule, ['products']),
     },
