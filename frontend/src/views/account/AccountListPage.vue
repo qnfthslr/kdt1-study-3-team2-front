@@ -22,7 +22,7 @@ export default {
     components: { AccountListForm },
 
     computed: {
-        ...mapState(accountModule, ['products']),
+        ...mapState(accountModule, ['accounts']),
     },
     mounted() {
         this.requestAccountListToSpring()
