@@ -9,12 +9,12 @@ Vue.use(VueRouter);
 const accountRoutes = [
 
     {
-        path: "account-register-page",
+        path: "/account-register-page",
         name: "AccountRegisterPage",
         component: AccountRegisterPage
     },
     {
-        path: "account-list-page",
+        path: "/account-list-page",
         name: "AccountListPage",
         component: AccountListPage
     }

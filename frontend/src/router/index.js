@@ -26,7 +26,7 @@ const routes = [
     path: '/product-register-page',
     name: 'ProductRegisterPage',
     component: ProductRegisterPage
-  }
+  },
 
   ...accountRoutes,
 ]
