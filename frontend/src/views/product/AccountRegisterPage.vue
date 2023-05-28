@@ -1,23 +1,23 @@
 <template>
     <div>
         <br>
-        <product-account-register-form align="center" @submit="onSubmit" />
+        <account-register-form align="center" @submit="onSubmit" />
         <br>
 
     </div>
 </template>
 <script>
 
-import ProductAccountRegisterForm from '@/components/product/ProductAccountRegisterForm.vue';
+import AccountRegisterForm from '@/components/product/AccountRegisterForm.vue';
 import { mapActions } from 'vuex';
 
 const accountModule = 'accountModule'
 
 export default {
     components: {
-        ProductAccountRegisterForm,
+        AccountRegisterForm,
     },
-    name: "ProductAccountRegisterPage",
+    name: "AccountRegisterPage",
     data() {
         return {
         }

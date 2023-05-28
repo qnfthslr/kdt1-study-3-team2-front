@@ -1,16 +1,16 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-import ProductAccountRegisterPage from "@/views/product/ProductAccountRegisterPage.vue"
+import AccountRegisterPage from "@/views/product/AccountRegisterPage.vue"
 
 Vue.use(VueRouter);
 
 const productRoutes = [
 
     {
-        path: "/product-account-register-page",
-        name: "ProductAccountRegisterPage",
-        component: ProductAccountRegisterPage
+        path: "account-register-page",
+        name: "AccountRegisterPage",
+        component: AccountRegisterPage
     }
 
 ];
