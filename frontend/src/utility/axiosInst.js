@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import env from "@/env";
 
 // Legacy 구성은 아래를 참고
@@ -8,3 +9,4 @@ const axiosInst = axios.create({
   timeout: 2500,
 });
 export default axiosInst;
+
