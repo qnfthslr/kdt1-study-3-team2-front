@@ -25,6 +25,9 @@
                 </td>
             </tr>
         </table>
+        <br><br>
+
+        <v-btn outlined color="red" to="/">돌아가기</v-btn>
         </div>
     </div>
 </template>
