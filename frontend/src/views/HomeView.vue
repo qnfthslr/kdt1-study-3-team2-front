@@ -3,9 +3,11 @@
     <div>
       <nav>
 
-        <router-link to="/product-register-page">상품 등록</router-link>
+        <router-link to="/product-register-page">상품 등록</router-link>|
         <router-link to="/account-register-page">회원 가입</router-link> |
         <router-link to="/account-list-page">회원 목록</router-link> |
+        <router-link to="/account-login-page">로그인</router-link>|
+          <router-link to="product-list-page">상품 목록</router-link>|
       </nav>
     </div>
   </v-container>

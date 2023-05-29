@@ -4,6 +4,7 @@ import HomeView from '../views/HomeView.vue'
 import accountRoutes from './account'
 
 import ProductRegisterPage from '@/views/product/ProductRegisterPage.vue'
+import productRoutes from "@/router/product";
 
 Vue.use(VueRouter)
 
@@ -29,6 +30,7 @@ const routes = [
   },
 
   ...accountRoutes,
+  ...productRoutes,
 ]
 
 const router = new VueRouter({
