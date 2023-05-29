@@ -33,3 +33,28 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+@keyframes rainbow {
+  0% {
+    background-position: 0% 50%
+  }
+
+  50% {
+    background-position: 100% 50%
+  }
+
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+h2,
+h1 {
+  background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow 3s ease infinite;
+}
+</style>
