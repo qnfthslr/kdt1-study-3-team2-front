@@ -21,5 +21,11 @@ export default {
           .then((res) =>
             commit(REQUEST_PRODUCT_LIST_TO_SPRING, res.data)
           )
+    },
+
+    requestProductToSpring({commit}, productId) {
+        return axiosInst.get(`/product/${productId}`)
+          .then((res) =>
+          commit(REQUEST_PRODUCT_TO_SPRING, res.data))
     }
 }

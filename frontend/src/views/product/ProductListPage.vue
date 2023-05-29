@@ -16,6 +16,7 @@
                     <tr
                         v-for="prod in products"
                         :key="prod.id"
+                        @click="goProductPage(prod.id)"
                     >
                         <td>{{prod.productName}}</td>
                         <td>{{prod.productPrice}}</td>
@@ -37,8 +38,12 @@ export default {
     },
     methods: {
       ...mapActions(productModule, ["requestProductListToSpring"]),
-        goProductPage() {
-
+        goProductPage(productId) {
+          console.log(productId)
+            this.$router.push({
+                name: "ProductReadPage",
+                params: {productId: productId}
+              })
         },
     },
     computed: {
