@@ -40,9 +40,8 @@
                     <v-btn outlined color="cyan" type ="submit" :disabled="!isFormValid()">회원 가입</v-btn>
 
                     <br><br>
-                    <router-link :to="{name : 'Home'}">
-                        돌아가기
-                    </router-link>
+                    
+                    <v-btn outlined color="red" to="/">돌아가기</v-btn>
                 </div>
 
 
