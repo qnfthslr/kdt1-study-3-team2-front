@@ -1,44 +1,108 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+    <v-app-bar app color="" style="height: 100px;
+    background-color: #8C9EFF;" class=" d-flex align-center">
+      <v-app-bar-nav-icon @click="navigation_drawer = !navigation_drawer" />
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
+
+      <div>
+        <v-img alt="Vuetify Logo" class="shrink mr-2" contain
+          src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Flag_of_South_Korea.png" transition="scale-transition"
+          width="80" />
+
       </div>
 
       <v-spacer></v-spacer>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
+      <v-btn href="https://github.com/eddi-study/kdt1-study-3-team2-front" target="_blank" text>
+        <span class="mr-2">GitHub 2조 front로 가기</span>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
+
+      <v-btn href="https://github.com/eddi-study/kdt1-study-3-team2-back" target="_blank" text>
+        <span class="mr-2">GitHub 2조 back으로 가기</span>
+        <v-icon>mdi-open-in-new</v-icon>
+      </v-btn>
+
+      <v-btn href="http://www.google.com" target="_blank" text>
+        <span class="mr-2">Google로 가기</span>
+        <v-icon>mdi-open-in-new</v-icon>
+      </v-btn>
+
+
+
+
     </v-app-bar>
 
+    <v-navigation-drawer app v-model="navigation_drawer">
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title class="text-h6">3-2 조</v-list-item-title>
+          <v-list-item-subtitle>뿌잉뿌잉</v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+      <v-divider />
+
+      <v-list nav dense>
+        <v-list-item v-for="(link, index) in links" :key="link.index" router :to="link.route">
+          <v-list-item-action>
+            <v-icon>
+              {{ link.icon }}
+            </v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>
+              {{ link.text }}
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item v-for="(accountP, index) in accountPlus" :key="accountP.index" router :to="accountP.route">
+          <v-list-item-action>
+            <v-icon>
+              {{ accountP.icon }}
+            </v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>
+              {{ accountP.text }}
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item v-for="(accountL, index) in accountList" :key="accountL.index" router :to="accountL.route">
+          <v-list-item-action>
+            <v-icon>
+              {{ accountL.icon }}
+            </v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>
+              {{ accountL.text }}
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item v-for="(productP, index) in productPlus" :key="productP.index" router :to="productP.route">
+          <v-list-item-action>
+            <v-icon>
+              {{ productP.icon }}
+            </v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>
+              {{ productP.text }}
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+      </v-list>
+
+    </v-navigation-drawer>
+
     <v-main>
-      <router-view/>
+      <v-container style="padding-top: 100px;"></v-container>
+      <router-view />
     </v-main>
   </v-app>
 </template>
@@ -49,7 +113,24 @@ export default {
   name: 'App',
 
   data: () => ({
+    navigation_drawer: false,
+    links: [
+      { icon: 'mdi-home', text: '홈', route: '/' }
+    ],
+    accountPlus: [
+      { icon: 'mdi-account-plus', text: '계정 추가', route: "/account-register-page" }
+    ],
+    accountList: [
+      { icon: 'mdi-account-details', text: '계졍 확인', route: "/account-list-page" }
+    ],
+    productPlus: [
+      { icon: 'mdi-archive-plus', text: '상품 추가', route: "/product-register-page" }
+    ],
+
+
     //
   }),
 };
 </script>
+
+<style scoped></style>
