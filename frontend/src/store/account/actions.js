@@ -1,8 +1,6 @@
 import axiosInst from "@/utility/axiosInst";
 
-import {
-  REQUEST_ACCOUNT_LIST_TO_SPRING,
-} from "./mutation-types"
+import {REQUEST_ACCOUNT_LIST_TO_SPRING,} from "./mutation-types"
 
 export default {
   requestSpringToCheckEmail({ }, payload) {
@@ -36,10 +34,20 @@ export default {
       });
   },
 
-  requestAccountListToSpring({ commit }) {
+  requestAccountListToSpring({commit}) {
     axiosInst.get("/account/list").then((res) => {
       commit(REQUEST_ACCOUNT_LIST_TO_SPRING, res.data);
     });
+  },
+
+  requestLogin({}, payload) {
+    axiosInst.post("/account/login", payload)
+      .then((res) => {
+        alert("login success!")
+        localStorage.setItem("accountToken", res.data)
+        return res;
+      })
+      .catch(() => alert("ERROR"))
   }
 
 }

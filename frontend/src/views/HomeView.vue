@@ -3,6 +3,7 @@
     <div style="display: flex;">
       <nav>
 
+
         <h2>↖↖↖</h2>
         <h2>↖↖↖</h2>
         <h2>↖↖↖</h2>
@@ -10,6 +11,7 @@
         <h2> ←←← </h2>
         <h2> ←←← </h2>
         <h2> ←←← </h2>
+
       </nav>
 
       <div style="display: flex; justify-content: flex-end;">

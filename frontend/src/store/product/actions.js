@@ -16,4 +16,10 @@ export default {
             alert('문제 발생!')
         })
     },
+    requestProductListToSpring({commit}) {
+        return axiosInst.get("/product/request-list")
+          .then((res) =>
+            commit(REQUEST_PRODUCT_LIST_TO_SPRING, res.data)
+          )
+    }
 }
