@@ -51,8 +51,8 @@ export default {
   },
 
   requestDelete({ }, email) {
-    return axiosInst.delete(`/account/${email}`)
-      .then((res) => {
+    return axiosInst.delete(`/account/delete/${email}`)
+      .then(() => {
         alert("삭제 하였습니다.");
       })
       .catch(() => {

@@ -65,8 +65,6 @@ export default {
         async onDelete() {
             await this.requestDelete(this.accounts)
         }
-
-
     },
 }
 </script>
