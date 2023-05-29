@@ -3,7 +3,7 @@
 
         <v-btn outlined color="cyan"  @click="readyToAccountList">회원 목록 보기</v-btn>
             <div v-if="isPressedButton">
-
+                <br>
         <table>
             <tr>
                 <th align="center">이메일</th>
@@ -23,15 +23,23 @@
                 <td align="center">
                     {{ account.password }}
                 </td>
+                <td>
+                    <v-btn outlined color="red" @click="onDelete">삭제</v-btn>
+
+                </td>
             </tr>
         </table>
         <br><br>
 
-        <v-btn outlined color="red" to="/">돌아가기</v-btn>
+        <v-btn outlined color="green" to="/">돌아가기</v-btn>
         </div>
     </div>
 </template>
 <script>
+
+import { mapActions, mapState } from 'vuex'
+const accountModule = 'accountModule'
+
 export default {
     data() {
         return {
@@ -43,14 +51,56 @@ export default {
             type: Array
         }
     },
+    computed: {
+        ...mapState(accountModule, ['account'])
+    },
+
     methods: {
+        ...mapActions(accountModule, ['requestDelete']),
+
         readyToAccountList() {
             this.isPressedButton = true
             alert("계정 목록을 보여드릴게요.")
+        },
+        async onDelete() {
+            await this.requestDelete(this.accounts)
         }
+
+
     },
 }
 </script>
-<style lang="">
-    
+<style scoped>
+table {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+td {
+    padding: 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightgray;
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+th {
+    background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 3s ease infinite;
+}
 </style>
