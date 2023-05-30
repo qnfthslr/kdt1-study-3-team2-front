@@ -24,8 +24,7 @@
                     {{ account.password }}
                 </td>
                 <td>
-                    <v-btn outlined color="red" @click="onDelete">삭제</v-btn>
-
+                    <v-btn outlined color="red" @click="onDelete(account.email)">삭제</v-btn>
                 </td>
             </tr>
         </table>
@@ -43,7 +42,7 @@ const accountModule = 'accountModule'
 export default {
     data() {
         return {
-            isPressedButton: false
+            isPressedButton: false,
         }
     },
     props: {
@@ -62,8 +61,9 @@ export default {
             this.isPressedButton = true
             alert("계정 목록을 보여드릴게요.")
         },
-        async onDelete() {
-            await this.requestDelete(this.accounts)
+        async onDelete(email) {
+
+            await this.requestDelete(email)
         }
     },
 }
