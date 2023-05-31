@@ -1,10 +1,8 @@
 <template lang="">
     <div>
-        
+
         <br>
-
         <account-list-form :accounts="accounts"/>
-
         <br>
 
 
