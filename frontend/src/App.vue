@@ -1,14 +1,14 @@
 <template>
   <v-app>
     <v-app-bar app color="" style="height: 100px;
-    background-color: #8C9EFF;" class=" d-flex align-center">
+    background-color: #93c0d1;" class=" d-flex align-center">
       <v-app-bar-nav-icon @click="navigation_drawer = !navigation_drawer" />
 
 
       <div>
-        <v-img alt="Vuetify Logo" class="shrink mr-2" contain
+        <!-- <v-img alt="Vuetify Logo" class="shrink mr-2" contain
           src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Flag_of_South_Korea.png" transition="scale-transition"
-          width="80" />
+          width="80" /> -->
 
       </div>
 
@@ -37,8 +37,8 @@
     <v-navigation-drawer app v-model="navigation_drawer">
       <v-list-item>
         <v-list-item-content>
-          <v-list-item-title class="text-h6">3-2 조</v-list-item-title>
-          <v-list-item-subtitle>뿌잉뿌잉</v-list-item-subtitle>
+          <v-list-item-title class="text-h6">2 조</v-list-item-title>
+          <!-- <v-list-item-subtitle></v-list-item-subtitle> -->
         </v-list-item-content>
       </v-list-item>
       <v-divider />
