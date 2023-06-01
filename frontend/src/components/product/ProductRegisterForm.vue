@@ -36,43 +36,45 @@
     </v-container>
   </template>
   
-  <script>
-  import axiosInst from '@/utility/axiosInst'
-  export default {
-      data () {
-          return {
-              productName: '상품명',
-              productPrice: 1000,
-              productDetails: '세부정보',
-              files: '',
-          }
-      },
-      methods: {
-          async onSubmit () {
-              let formData = new FormData()
-              let productInfo = {
-                  productName: this.productName,
-                  productPrice: this.productPrice,
-                  productDetails: this.productDetails,
-                  accountToken: localStorage.getItem("accountToken")
-              }
-              for (let idx = 0; idx < this.files.length; idx++) {
-                  formData.append('imageFileList', this.files[idx])
-              }
-              formData.append(
-                  "productInfo",
-                  new Blob([JSON.stringify(productInfo)], { type: "application/json" })
-              )
-              this.$emit("submit", formData)
-              await this.$router.push({ name: 'ProductListPage' })
-          },
-          handleFileUpload () {
-              this.files = this.$refs.files.files
-          },
+<script>
+import axiosInst from '@/utility/axiosInst'
+export default {
+  data() {
+    return {
+      productName: '상품명',
+      productPrice: 1000,
+      productDetails: '세부정보',
+      files: '',
+    }
+  },
+  methods: {
+    async onSubmit() {
+      let formData = new FormData()
+      let productInfo = {
+        productName: this.productName,
+        productPrice: this.productPrice,
+        productDetails: this.productDetails,
+        accountToken: localStorage.getItem("accountToken")
       }
+      for (let idx = 0; idx < this.files.length; idx++) {
+        formData.append('imageFileList', this.files[idx])
+      }
+      formData.append(
+        "productInfo",
+        new Blob([JSON.stringify(productInfo)], { type: "application/json" })
+      )
+      this.$emit("submit", formData)
+      await this.$router.push({ name: 'ProductListPage' })
+    },
+    handleFileUpload() {
+      this.files = this.$refs.files.files
+    },
   }
-  </script>
+}
+</script>
   
-  <style lang="">
-      
-  </style>
+<style scoped>
+td {
+  border-bottom: 1px solid black;
+}
+</style>

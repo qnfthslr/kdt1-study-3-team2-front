@@ -41,7 +41,7 @@
 
                     <br><br>
                     
-                    <v-btn outlined color="red" to="/">돌아가기</v-btn>
+                    <v-btn outlined color="green" to="/">돌아가기</v-btn>
                 </div>
 
 
