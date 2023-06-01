@@ -1,15 +1,20 @@
 <template>
-<v-container>
-  <p>{{product}}</p>
-</v-container>
+  <v-container>
+    <product-read-form :product="product"></product-read-form>
+
+  </v-container>
 </template>
 
 <script>
-import {mapActions, mapState} from "vuex";
+import { mapActions, mapState } from "vuex";
 import product from "@/router/product";
+import ProductReadForm from "@/components/product/ProductReadForm.vue";
 
-const productModule="productModule"
+const productModule = "productModule"
 export default {
+  components: {
+    ProductReadForm
+  },
   name: "ProductReadPage",
   props: {
     productId: {
@@ -29,6 +34,4 @@ export default {
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
