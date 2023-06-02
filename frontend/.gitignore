@@ -24,3 +24,4 @@ pnpm-debug.log*
 
 .env.development
 .env.production
+docker-compose.yml
