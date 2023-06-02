@@ -24,10 +24,6 @@
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
 
-      <v-btn href="http://www.google.com" target="_blank" text>
-        <span class="mr-2">Google로 가기</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
 
 
 

@@ -1,7 +1,6 @@
-<template lang="">
-    
+<template>
+    <v-card>
         <v-simple-table>
-            <template v-slot:default>
                 <tbody>
                     <tr>
                         <th>상품명</th>
@@ -22,25 +21,37 @@
                         <td>{{ product.account }}</td>
                     </tr>
 
-                </tbody>    
-            
-                
-            </template>
-
-
+                </tbody>
         </v-simple-table>
+        <div>
+            <v-btn @click="$router.push('/')">cancel</v-btn>
+        <v-btn @click="buy" value="product.productId">buy</v-btn>
+        </div>
+    </v-card>
 
     
 </template>
 <script>
+import axiosInst from "@/utility/axiosInst";
+
 export default {
     name: "ProductReadForm",
     props: {
         product: {
-            type: Object,
             required: true,
         }
-    }
+    },
+    methods: {
+        async buy() {
+            await axiosInst.post("/order/regist", {userToken:localStorage.getItem("accountToken"), productId:this.product.productId})
+              .then(res=> {
+                  alert("order success")
+                  this.$router.push("/")
+              })
+              .catch(res=> alert("order fail"))
+        }
+    },
+
 
 }
 </script>
