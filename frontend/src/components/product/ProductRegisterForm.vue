@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <v-container>
       <form @submit.prevent="onSubmit">
         <table>
@@ -18,13 +18,6 @@
             <td>상품 세부 정보</td>
             <td>
               <textarea cols="80" rows="20" v-model="productDetails"/>
-            </td>
-          </tr>
-          <tr>
-            <td>상품 이미지</td>
-            <td>
-              <input type="file" id="files" ref="files"
-                      multiple @change="handleFileUpload"/>
             </td>
           </tr>
         </table>
@@ -56,14 +49,15 @@ export default {
         productDetails: this.productDetails,
         accountToken: localStorage.getItem("accountToken")
       }
-      for (let idx = 0; idx < this.files.length; idx++) {
-        formData.append('imageFileList', this.files[idx])
-      }
-      formData.append(
-        "productInfo",
-        new Blob([JSON.stringify(productInfo)], { type: "application/json" })
-      )
-      this.$emit("submit", formData)
+
+      await axiosInst.post("/product/register", productInfo)
+          .then(res=> {
+              console.log("regist success")
+          })
+          .catch(res => {
+              console.log("regist fail")
+          })
+
       await this.$router.push({ name: 'ProductListPage' })
     },
     handleFileUpload() {
