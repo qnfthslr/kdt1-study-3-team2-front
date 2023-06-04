@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import accountRoutes from "@/router/account";
+import productRoutes from "@/router/product"
 
 Vue.use(VueRouter)
 
@@ -20,6 +21,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
   ...accountRoutes,
+  ...productRoutes,
 ]
 
 const router = new VueRouter({
